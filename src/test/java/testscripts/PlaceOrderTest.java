@@ -6,10 +6,12 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.HomePage;
 import pages.SearchResultPage;
+import pages.ShopingCartPage;
 
 public class PlaceOrderTest extends TestBase {
 	HomePage homePage;
 	SearchResultPage resultPage;
+	ShopingCartPage cartPage;
 	@BeforeTest
 	public void setup() {
 		intialize();
@@ -26,7 +28,13 @@ public class PlaceOrderTest extends TestBase {
 	  resultPage = new SearchResultPage();
 	  resultPage.addItem();
   }
- // @Test
-  public void CheckoutItemTest() {
+  @Test(priority=3)
+  public void checkoutItemTest() {
+	  cartPage = new ShopingCartPage();
+	  boolean isadd = cartPage.isItemAdded();
+	  if(isadd) {
+		  cartPage.chkOut();
+	  }
   }
+ 
 }
