@@ -17,8 +17,9 @@ public class HomePage extends TestBase {
 	
 	@FindBy(id ="cart")
 	WebElement btnCart;
-	public HomePage() {
+	public HomePage() {   
 		PageFactory.initElements(driver, this);
+		System.out.println("hello");
 	}
 	public SearchResultPage searchItem(String item) {
 		srcBox.sendKeys(item);
